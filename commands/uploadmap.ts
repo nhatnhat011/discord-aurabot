@@ -5,7 +5,6 @@ export default {
     name: 'uploadmap',
     category: 'Configuration',
     description: 'upload a map to bot (root admin only)',
-    ownerOnly: (process.env.USAGE == "public") ? true:false,
     guildOnly: true,
     globalCooldown: '1m',
     options: [
