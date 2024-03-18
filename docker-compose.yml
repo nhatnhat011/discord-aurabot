@@ -1,0 +1,13 @@
+services:
+  discord-aurabot:
+    build: .
+    container_name: discord-aurabot
+    command: "npm run start"
+    volumes:
+      - /discord-aurabot/.env:/app/discord-aurabot/.env
+      - /path/aura-bot:/app/discord-aurabot/aura-bot
+      - /app/discord-aurabot/node_modules
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
