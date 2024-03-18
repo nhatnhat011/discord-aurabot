@@ -67,6 +67,12 @@ services:
         max-file: "2"
 ```
 
+### Note
+`AURABOT_ADDRESS` starts as follows
+```
+AURABOT_ADDRESS=app/
+```
+
 ## Manual
 install sqlite3 v3.35+
 ```
