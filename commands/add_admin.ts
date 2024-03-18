@@ -24,7 +24,7 @@ export default {
             await interaction.deferReply({
             })
 
-            let query = 'sqlite3 ~/aura-bot/aura.dbs -header '
+            let query = 'sqlite3 ${process.env.AURABOT_ADDRESS}/aura.dbs -header '
             const username = interaction.options.getString('username')?.toLowerCase() as string
             query += `"INSERT INTO ADMINS (name, server) SELECT '${username}', 'server.eurobattle.net' WHERE NOT EXISTS (SELECT name FROM admins WHERE name = '${username}') RETURNING *"` as const
 
