@@ -3,4 +3,6 @@ node_modules
 config/
 Dockerfile
 docker-compose.yml
-ReadMe.md
+README.md
+.gitignore
+.gitattributes
