@@ -4,7 +4,6 @@ import path from 'path'
 import dotenv from 'dotenv'
 import keyFileStorage from 'key-file-storage'
 import { uploadmap } from './helpers/global'
-import { watchFile } from './helpers/watchAppendedLines'
 const kfs = keyFileStorage('./config')
 dotenv.config()
 
@@ -47,13 +46,6 @@ client.on('ready', async () => {
             'slash'
         ],
     })
-
-    // Watch for appended lines
-    try {
-        watchFile(handleNewLine);
-    } catch (error) {
-        console.error(error);
-    }
 })
 
 // auto upload map when receive an announcement
