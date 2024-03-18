@@ -49,6 +49,25 @@ TOKEN_DEV=your test bot token
 TESTSERVER=["your test server id"]
 ```
 
+## Docker
+Edit `docker-compose.yml` and use `docker compose up`
+```
+services:
+  discord-aurabot:
+    build: .
+    container_name: discord-aurabot
+    command: "npm run start"
+    volumes:
+      - /path/.env:/app/.env
+      - /path/aura-bot:/app/aura-bot
+      - /app/discord-aurabot/node_modules
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "2"
+```
+
+## Manual
 install sqlite3 v3.35+
 ```
 wget 'https://www.sqlite.org/2022/sqlite-autoconf-3370200.tar.gz'
