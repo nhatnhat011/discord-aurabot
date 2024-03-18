@@ -25,7 +25,7 @@ export default {
             await interaction.deferReply({
             })
 
-            let query = 'sqlite3 ~/aura-bot/aura.dbs -header '
+            let query = `sqlite3 ${process.env.AURABOT_ADDRESS}/aura.dbs -header `
             const username = interaction.options.getString('username')?.toLowerCase()
             const reason: string = interaction.options.getString('reason') ? interaction.options.getString('reason') as string : ''
             query += `"DELETE FROM bans WHERE name = '${username}' RETURNING *"` as const
