@@ -25,7 +25,7 @@ export default {
             description: 'the name of the config file. Example for twrpg: twre',
             required: false,
             type: 3
-        }
+        },
         {
             name: 'visibility',
             description: '1 = hide terrain; 2 = explored; 3 = always visible; 4 = default',
