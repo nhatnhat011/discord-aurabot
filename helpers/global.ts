@@ -30,9 +30,7 @@ export async function uploadmap(url: string, filename: string, config?: string) 
     if (config != null && config != "null") {
         const data = `map_path = maps\\${filename}\n` +
         `map_type =\n` +
-        `map_localpath = ${filename}\n` +
-        `${visibility}\n` +
-        `${observers}\n`
+        `map_localpath = ${filename}\n`
         }
     
         fs.writeFile(`${process.env.AURABOT_ADDRESS}/mapcfgs/${config}.cfg`, data, 'utf8', error => {
