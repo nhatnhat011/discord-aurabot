@@ -28,16 +28,14 @@ export async function uploadmap(url: string, filename: string, config?: string, 
 
     //write config file
     if (config != null && config != "null") {
+        let datavisi = "";
+        let dataobs = "";
         if (visibility != null && visibility != "null") {
             let datavisi = `map_visibility = ${visibility}`
-        } else {
-            let datavisi = ""
-        }
+        };
         if (observers != null && observers != "null") {
             let dataobs = `map_observers = ${observers}`
-        } else {
-            let dataobs = ""
-        }
+        };
         const data = `map_path = maps\\${filename}\n` +
         `map_type =\n` +
         `map_localpath = ${filename}\n` +
