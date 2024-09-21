@@ -33,13 +33,13 @@ export async function uploadmap(url: string, filename: string, config?: string, 
         }
         else {
             visibility = ""
-        }
+        };
         if (observers != null && observers != "null") {
             observers = `map_observers = ${observers}`;
         }
         else {
             observers = ""
-        }
+        };
         const data = `map_path = maps\\${filename}\n` +
         `map_type =\n` +
         `map_localpath = ${filename}\n` +
