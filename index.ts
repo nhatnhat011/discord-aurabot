@@ -69,7 +69,7 @@ client.on('messageCreate', message => {
                 if (filename.endsWith(".w3x")) {
                     let replyMessage = await message.reply("uploading new map")
                     const config = kfs["auto_follow_map_update_config_name"]
-                    const filesize = await uploadmap(url, filename!, config, "null", "null")
+                    const filesize = await uploadmap(url, filename!, config)
 
                     var result = `Map: ${filename} with ${filesize} MB\n` +
                         `Download: ${url}\n` +
