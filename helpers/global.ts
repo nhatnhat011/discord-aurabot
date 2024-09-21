@@ -23,15 +23,22 @@ export function delay(ms: number)
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export async function uploadmap(url: string, filename: string, config?: string) {
+export async function uploadmap(url: string, filename: string, config?: string, visibility?: string, observers?: string) {
     const syntax = `wget -O \"${process.env.AURABOT_ADDRESS}/maps/${filename}\" \"${url}\"`
 
     //write config file
     if (config != null && config != "null") {
+        if (visibility != null && visibility != "null") {
+            const datavisi = `map_visibility = ${visibility}`
+        }
+        if (observers != null && observers != "null") {
+            const dataobs = `map_observers = ${observers}`
+        }
         const data = `map_path = maps\\${filename}\n` +
         `map_type =\n` +
-        `map_localpath = ${filename}\n`
-        }
+        `map_localpath = ${filename}\n` +
+        `${datavisi}\n` +
+        `${dataobs}\n`
     
         fs.writeFile(`${process.env.AURABOT_ADDRESS}/mapcfgs/${config}.cfg`, data, 'utf8', error => {
             if (error) throw error
