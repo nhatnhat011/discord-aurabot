@@ -29,16 +29,22 @@ export async function uploadmap(url: string, filename: string, config?: string, 
     //write config file
     if (config != null && config != "null") {
         if (visibility != null && visibility != "null") {
-            let datavisi = `map_visibility = ${visibility}`;
-        };
+            visibility = `map_visibility = ${visibility}`;
+        }
+        else {
+            visibility = ""
+        }
         if (observers != null && observers != "null") {
-            let datavobs = `map_observers = ${observers}`;
-        };
+            observers = `map_observers = ${observers}`;
+        }
+        else {
+            observers = ""
+        }
         const data = `map_path = maps\\${filename}\n` +
         `map_type =\n` +
         `map_localpath = ${filename}\n` +
-        `${datavisi}\n` +
-        `${datavobs}\n`
+        `${visibility}\n` +
+        `${observers}\n`
         }
     
         fs.writeFile(`${process.env.AURABOT_ADDRESS}/mapcfgs/${config}.cfg`, data, 'utf8', error => {
