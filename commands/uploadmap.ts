@@ -25,6 +25,18 @@ export default {
             description: 'the name of the config file. Example for twrpg: twre',
             required: false,
             type: 3
+        },
+        {
+            name: 'visibility',
+            description: '1 = hide terrain; 2 = explored; 3 = always visible; 4 = default',
+            required: false,
+            type: 3
+        },
+        {
+            name: 'observers',
+            description: '1 = none; 2 = on defeat; 3 = allowed; 4 = referees',
+            required: false,
+            type: 3
         }
     ],
 
@@ -39,9 +51,11 @@ export default {
             const url = interaction.options.getString('url')
             const filename = interaction.options.getString('file_name')
             const config = interaction.options.getString('config_name')
+            const visibility = interaction.options.getString('visibility')
+            const observers = interaction.options.getString('observers')
 
             //get filesize for user to double check if correct
-            const filesize = await uploadmap(url!, filename!, config!)
+            const filesize = await uploadmap(url!, filename!, config!, visibility!, observers!)
 
             //output
             var result = `Map: ${filename} with ${filesize} MB\n` +
